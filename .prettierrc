@@ -1,0 +1,16 @@
+{
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "printWidth": 120,
+    "tabWidth": 4,
+    "bracketSpacing": true,
+    "jsxBracketSameLine": false,
+    "overrides": [
+      {
+        "files": ["*.yml", "*.json", ".prettierrc", ".eslintrc"],
+        "options": {
+          "tabWidth": 4
+        }
+      }
+    ]
+  }
