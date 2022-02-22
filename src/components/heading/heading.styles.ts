@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { theme } from '../../theme';
+import { device } from '../../theme/device.object';
 import { HeadingStyledProps } from './heading.definition';
 
 const sizeStyles = ({ fontSize, lineHeight }: { fontSize: number; lineHeight: number }) => css`
@@ -12,16 +13,16 @@ export const Heading = styled.h1<HeadingStyledProps>`
     font-weight: 700;
     text-transform: uppercase;
 
-    /* ${({ configuration }) =>
+    ${({ configuration }) =>
         sizeStyles({ fontSize: configuration.fontSize.mobile, lineHeight: configuration.lineHeight.mobile })}
 
     @media ${device.tablet} {
         ${({ configuration }) =>
-        sizeStyles({ fontSize: configuration.fontSize.tablet, lineHeight: configuration.lineHeight.tablet })}
+            sizeStyles({ fontSize: configuration.fontSize.tablet, lineHeight: configuration.lineHeight.tablet })}
     }
 
     @media ${device.desktopS} {
         ${({ configuration }) =>
-        sizeStyles({ fontSize: configuration.fontSize.desktop, lineHeight: configuration.lineHeight.desktop })}
-    } */
+            sizeStyles({ fontSize: configuration.fontSize.desktop, lineHeight: configuration.lineHeight.desktop })}
+    }
 `;

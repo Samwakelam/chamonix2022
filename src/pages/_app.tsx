@@ -38,6 +38,7 @@ function App({ Component, pageProps }: AppProps): JSX.Element {
                 <Head>
                     <link rel="manifest" href="/manifest.json" />
                     <title>Chamonix 2022</title>
+                    <link rel="icon" href="snow-board-64.png" type="image/x-icon" />
                     <meta name="theme-color" content="#a9c09a" />
                 </Head>
                 <Component {...pageProps} />

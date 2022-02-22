@@ -11,7 +11,6 @@ type IndexPageProps = {
 };
 
 const Index = ({ resortData }: IndexPageProps): JSX.Element => {
-    console.log('resortData =', resortData);
     return <Page pageData={resortData} />;
 };
 

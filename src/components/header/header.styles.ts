@@ -52,6 +52,16 @@ export const TitleWrap = styled.div`
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
+    & h1 {
+        font-size: 1.2rem;
+        margin: 0;
+    }
+
+    & h2 {
+        font-size: 1rem;
+        margin: 0;
+    }
+
     @media (orientation: landscape) {
         order: 2;
         height: 15rem;
@@ -104,7 +114,6 @@ export const LeftButtonWrap = styled.div`
     bottom: 0;
     width: 100%;
     visibility: visible;
-    overflow-y: scroll;
 
     & h3 {
         font-size: 1.2rem;
@@ -127,6 +136,10 @@ export const LeftButtonWrap = styled.div`
 
         & > * {
             pointer-events: none;
+        }
+
+        & h3 {
+            line-height: unset;
         }
 
         & svg {
