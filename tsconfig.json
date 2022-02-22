@@ -2,15 +2,13 @@
   "compilerOptions": {
     "target": "es5",
     "lib": [
-      "DOM",
-      "ESNext"
+      "dom",
+      "dom.iterable",
+      "esnext"
     ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
-    "removeComments": true,
-    "preserveConstEnums": true,
-    "sourceMap": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "incremental": true,
