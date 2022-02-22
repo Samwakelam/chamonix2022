@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://samwakelam.github.io/ski-resort-weather",
+  "homepage": "https://github.com/Samwakelam/chamonix2022#readme",
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "next build && next export && git add out/ && git commit -m \"Deploy gh-pages\" && git subtree push --prefix out origin gh-pages",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": " next dev",
     "build": "next build",
@@ -23,7 +23,6 @@
   "bugs": {
     "url": "https://github.com/Samwakelam/chamonix2022/issues"
   },
-  "homepage": "https://github.com/Samwakelam/chamonix2022#readme",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.3.0",
     "@fortawesome/free-solid-svg-icons": "^6.0.0",
@@ -51,6 +50,7 @@
     "@types/styled-components": "^5.1.22",
     "babel-loader": "^8.2.2",
     "babel-plugin-styled-components": "^2.0.2",
+    "eslint": "^8.9.0",
     "gh-pages": "^3.2.3",
     "jest-styled-components": "^7.0.8",
     "ts-loader": "^9.2.5",
