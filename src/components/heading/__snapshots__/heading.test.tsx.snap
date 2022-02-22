@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Heading Component should match snapshot correctly 1`] = `
+<h1
+  class="sc-bdfBQB qtJAJ"
+>
+  WELCOME TO GYMSHARK
+</h1>
+`;

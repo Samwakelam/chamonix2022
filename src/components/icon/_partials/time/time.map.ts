@@ -1,0 +1,28 @@
+import { TimeIconMapProps } from './time.definition';
+
+export const timeIconMap: TimeIconMapProps = {
+    '1': 'wi wi-time-1',
+    '2': 'wi wi-time-2',
+    '3': 'wi wi-time-3',
+    '4': 'wi wi-time-4',
+    '5': 'wi wi-time-5',
+    '6': 'wi wi-time-6',
+    '7': 'wi wi-time-7',
+    '8': 'wi wi-time-8',
+    '9': 'wi wi-time-9',
+    '10': 'wi wi-time-10',
+    '11': 'wi wi-time-11',
+    '12': 'wi wi-time-12',
+    '13': 'wi wi-time-1',
+    '14': 'wi wi-time-2',
+    '15': 'wi wi-time-3',
+    '16': 'wi wi-time-4',
+    '17': 'wi wi-time-5',
+    '18': 'wi wi-time-6',
+    '19': 'wi wi-time-7',
+    '20': 'wi wi-time-8',
+    '21': 'wi wi-time-9',
+    '22': 'wi wi-time-10',
+    '23': 'wi wi-time-11',
+    '24': 'wi wi-time-12',
+};

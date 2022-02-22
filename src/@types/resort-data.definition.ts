@@ -1,3 +1,20 @@
+export enum MountainLevelTypes {
+    BASE = 'base',
+    MID = 'mid',
+    UPPER = 'upper',
+}
+
+export enum WeatherTypes {
+    CLOUD = 'cloudCoverage',
+    RAIN = 'precipitation',
+    GENERAL = 'general',
+}
+
+export enum LocationTypes {
+    RESORT = 'resort',
+    MOUNT = 'mountain',
+}
+
 export type MountainDataProps = {
     feelslike_c: number;
     feelslike_f: number;
@@ -18,9 +35,9 @@ export type MountainDataProps = {
     wx_code: number;
     wx_desc: string;
     wx_icon: string;
-}
+};
 
-export type ForcastDataProps = {
+export type ForecastDataProps = {
     base: MountainDataProps;
     date: string;
     dewpoint_c: number;
@@ -45,12 +62,12 @@ export type ForcastDataProps = {
     upper: MountainDataProps;
     vis_km: number;
     vis_mi: number;
-}
+};
 
 export type ResortDataProps = {
     continent: string;
     country: string;
     id: number;
     name: string;
-    forcast: ForcastDataProps[];
-}
+    forecast: ForecastDataProps[];
+};
