@@ -1,0 +1,29 @@
+{
+    "short_name": "Ski",
+    "name": "Ski Resort Weather",
+    "icons": [
+      {
+        "src": "assets/bin-icon.png",
+        "sizes": "64x64 32x32 24x24 16x16",
+        "type": "image/png",
+        "purpose" : "maskable any"
+      },
+      {
+        "src": "assets/manifest/192-bin.png",
+        "type": "image/png",
+        "sizes": "192x192",
+        "purpose" : "maskable any"
+      },
+      {
+        "src": "assets/manifest/512-bin.png",
+        "type": "image/png",
+        "sizes": "512x512",
+        "purpose" : "maskable any"
+      }
+    ],
+    "scope":"/",
+    "start_url": "/",
+    "display": "standalone",
+    "theme_color": "#a9c09a",
+    "background_color": "#EFF2F9"
+  }

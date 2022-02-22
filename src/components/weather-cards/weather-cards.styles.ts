@@ -53,6 +53,7 @@ export const ButtonWrap = styled.div`
         & i,
         svg {
             margin: 0 1rem;
+            height: 100%;
         }
 
         &[data-display='false'] {

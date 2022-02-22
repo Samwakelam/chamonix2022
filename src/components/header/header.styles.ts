@@ -75,6 +75,10 @@ export const RoundButtonWrap = styled.div`
             pointer-events: none;
         }
 
+        & svg {
+            height: 100%;
+        }
+
         &[data-active='true'] {
             transform: scale(1.5, 1.5);
             color: ${theme.c.blue.c};
@@ -123,6 +127,11 @@ export const LeftButtonWrap = styled.div`
 
         & > * {
             pointer-events: none;
+        }
+
+        & svg {
+            height: 100%;
+            width: 100%;
         }
 
         &[data-active='true'] {
