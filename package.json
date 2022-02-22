@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://samwakelam.github.io/ski-resort-weather",
+  "homepage": "https://samwakelam.github.io/chamonix2022",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
