@@ -68,5 +68,6 @@ export const DateWrap = styled.div`
     svg {
         align-self: center;
         margin: 0 1rem 0 0;
+        height: 100%;
     }
 `;
