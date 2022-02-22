@@ -10,6 +10,12 @@ export const ResortDataCard = styled.article`
     & > div {
         margin: 0 0 10rem 0;
     }
+
+    @media (orientation: landscape) {
+        & > div {
+            margin: 0 0 5rem 0;
+        }
+    }
 `;
 
 export const HeadingWrap = styled.div`

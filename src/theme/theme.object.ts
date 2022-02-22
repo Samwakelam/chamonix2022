@@ -48,4 +48,12 @@ export const theme = {
     f: {
         lato: 'Lato, sans-serif',
     },
+    device: {
+        desktopL: 1920,
+        desktopS: 1440,
+        laptopL: 1200,
+        laptopS: 1024,
+        tablet: 768,
+        mobile: 500,
+    },
 };
