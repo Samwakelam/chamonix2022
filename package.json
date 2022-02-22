@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://github.com/Samwakelam/chamonix2022#readme",
+  "homepage": "https://samwakelam.github.io/chamonix2022",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "next build && next export && git add out/ && git commit -m \"Deploy gh-pages\" && git subtree push --prefix out origin gh-pages",
