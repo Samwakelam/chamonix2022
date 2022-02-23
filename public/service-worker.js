@@ -3,6 +3,7 @@ const DATA_CACHE_NAME = 'ski-resort-weather-offline-data-cache-v1';
 const FILES_TO_CACHE = [
     // This needs to be included not '/index.htm', or it works explicitly for /index.html search.
     '/',
+    '/maps',
     'manifest.json',
 
     '/css/weather-icons-wind.css',

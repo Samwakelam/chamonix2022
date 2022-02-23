@@ -1,19 +1,21 @@
 import { LocationTypes, MountainLevelTypes, WeatherTypes } from '../../@types/resort-data.definition';
 
-export type HeaderConfigProps = {
+export type NavigationConfigProps = {
     continent: string;
     country: string;
     id: number;
     name: string;
 };
 
-export type HeaderProps = {
-    headerConfig?: HeaderConfigProps;
+export type NavigationProps = {
+    navigationConfig?: NavigationConfigProps;
     setLevel: (item: MountainLevelTypes) => void;
     setLocation: (item: LocationTypes) => void;
     setWeather: (item: WeatherTypes) => void;
     setDate: (item: string) => void;
+    setMap: (item: string) => void;
     availableDates?: string[];
+    path: string;
 };
 
 export type MountainLeftButtonsProps = {
