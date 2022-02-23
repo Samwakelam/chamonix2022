@@ -7,7 +7,7 @@ export const Page = styled.div`
     @media (orientation: landscape) {
         flex-flow: column;
 
-        & header {
+        & nav {
             position: sticky;
             top: 0;
         }

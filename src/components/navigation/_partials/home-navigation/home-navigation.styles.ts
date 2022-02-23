@@ -1,18 +1,15 @@
 import styled, { css } from 'styled-components';
-import { LocationTypes } from '../../@types/resort-data.definition';
-import { shadow, theme } from '../../theme';
+import { theme } from '../../../../theme';
+import { device } from '../../../../theme/device.object';
+import { HomeNavigationStyledProps } from './home-navigation.definition';
 
-export const Header = styled.header`
+export const HomeNavigation = styled.section<HomeNavigationStyledProps>`
     display: flex;
     flex-flow: column;
     justify-content: space-around;
     align-items: center;
-    position: relative;
-
-    background-color: ${theme.c.white.a};
-    box-shadow: ${shadow.raised.a};
-    height: 100vh;
-    width: 15rem;
+    width: 100%;
+    height: 100%;
 
     & select {
         margin: 0 1rem 0 0;
@@ -20,6 +17,7 @@ export const Header = styled.header`
         border-radius: 0 2rem 2rem 0;
         align-self: flex-start;
         text-align: center;
+
         background-image: linear-gradient(135deg, ${theme.c.aqua.a}, ${theme.c.aqua.b});
         background-clip: text;
         -webkit-background-clip: text;
@@ -35,10 +33,16 @@ export const Header = styled.header`
 
     @media (orientation: landscape) {
         flex-flow: row;
-        align-items: center;
+    }
 
-        height: 15rem;
-        width: 100vw;
+    @media ${device.laptopL} {
+        @media (orientation: landscape) {
+            flex-flow: column;
+            align-items: center;
+
+            height: 100vh;
+            width: 15rem;
+        }
     }
 `;
 
@@ -67,7 +71,7 @@ export const TitleWrap = styled.div`
         height: 15rem;
         width: 15rem;
         justify-content: center;
-        padding: 0 2rem;
+        padding: 0 1rem;
     }
 `;
 
@@ -89,6 +93,10 @@ export const RoundButtonWrap = styled.div`
             height: 100%;
         }
 
+        &:last-of-type {
+            margin: 0 0 1rem 0;
+        }
+
         &[data-active='true'] {
             transform: scale(1.5, 1.5);
             color: ${theme.c.blue.c};
@@ -99,10 +107,14 @@ export const RoundButtonWrap = styled.div`
         flex-flow: row;
         order: 3;
         width: 30rem;
-        padding: 0 2rem;
+        padding: 0 1rem;
 
         & button {
             margin: 0 1.5rem;
+
+            &:last-of-type {
+                margin: 0 0 0 0;
+            }
         }
     }
 `;
@@ -163,6 +175,7 @@ export const LeftButtonWrap = styled.div`
         height: 100%;
         justify-content: center;
         height: 15rem;
+        width: 150rem;
     }
 `;
 
@@ -175,8 +188,6 @@ export const ToggleWrap = styled.div`
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-
-    bottom: 2.4rem;
 
     & h3 {
         font-size: 1.2rem;
