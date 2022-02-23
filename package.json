@@ -6,13 +6,14 @@
   "homepage": "https://samwakelam.github.io/chamonix2022",
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "next build && next export && git add out/ && touch out/.nojekyll && git commit -m \"Deploy gh-pages\" && git subtree push --prefix out origin gh-pages",
+    "deploy": "next build && next export && git add out/ && git commit -m \"Deploy gh-pages\" && git subtree push --prefix out origin gh-pages",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": " next dev",
     "build": "next build",
     "start": "next start",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "export": "next export"
   },
   "repository": {
     "type": "git",
