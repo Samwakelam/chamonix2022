@@ -1,4 +1,4 @@
-import { MountainLevelTypes, WeatherTypes } from '../../@types/resort-data.definition';
+import { MountainLevelTypes, WeatherTypes } from '../../../@types/resort-data.definition';
 import { MountainLeftButtonsProps, ResortLeftButtonsProps } from './navigation.definition';
 
 export const mountainLeftButtons: MountainLeftButtonsProps[] = [
