@@ -1,7 +1,9 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
+import { getGradientTextClip } from '../../../../helpers/get-gradient-text-clip.helper';
 
-import { theme, shadow } from '../../../../theme';
+import { theme } from '../../../../theme';
 import { Icon as IconComponent } from '../../../icon/icon.component';
+
 import { ColourGradientProps } from '../../weather-card.definitions';
 import { DataCard } from '../../weather-cards.styles';
 
@@ -12,10 +14,7 @@ export const MountainDataCard = styled.article`
         margin: 3rem 0 1rem 0;
         font-size: 1rem;
 
-        background-image: linear-gradient(135deg, ${theme.c.pink.a}, ${theme.c.pink.c});
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        ${getGradientTextClip(135, theme.c.pink.a, theme.c.pink.c)}
     }
 
     & i:first-of-type {
@@ -26,10 +25,7 @@ export const MountainDataCard = styled.article`
     & > i:last-of-type {
         margin: 0 0 3rem 0;
 
-        background-image: linear-gradient(135deg, ${theme.c.pink.a}, ${theme.c.pink.c});
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        ${getGradientTextClip(135, theme.c.pink.a, theme.c.pink.c)}
     }
 `;
 
@@ -37,27 +33,18 @@ export const TwoIcon = styled.div<ColourGradientProps>`
     display: flex;
     gap: 1rem;
 
-    background-image: linear-gradient(135deg, ${({ colour }) => colour.a}, ${({ colour }) => colour.b});
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    ${({ colour }) => getGradientTextClip(135, colour.a, colour.b)}
 `;
 
 export const Icon = styled(IconComponent)<ColourGradientProps>`
-    background-image: linear-gradient(135deg, ${({ colour }) => colour.a}, ${({ colour }) => colour.b});
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    ${({ colour }) => getGradientTextClip(135, colour.a, colour.b)}
 `;
 
 export const DateWrap = styled.div`
     display: flex;
     align-items: center;
 
-    background-image: linear-gradient(135deg, ${theme.c.pink.a}, ${theme.c.pink.c});
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    ${getGradientTextClip(135, theme.c.pink.a, theme.c.pink.c)}
 
     & h4 {
         margin: 0;

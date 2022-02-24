@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { device } from '../../theme/device.object';
 
 export const Page = styled.div`
     position: relative;
@@ -11,6 +12,10 @@ export const Page = styled.div`
             position: sticky;
             top: 0;
         }
+    }
+
+    @media ${device.laptopL} {
+        flex-flow: row;
     }
 `;
 

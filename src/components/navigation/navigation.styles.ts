@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import { shadow, theme } from '../../theme';
 import { device } from '../../theme/device.object';
 
-export const Navigation = styled.nav<{ path: string }>`
+const NavigationBaseStyles = css`
     display: flex;
     align-items: center;
 
@@ -13,6 +13,10 @@ export const Navigation = styled.nav<{ path: string }>`
     width: 15rem;
     transition-property: width;
     transition: 200ms;
+`;
+
+export const Navigation = styled.nav<{ path: string }>`
+    ${NavigationBaseStyles}
 
     ${({ path }) =>
         path === '/maps' &&
@@ -33,6 +37,20 @@ export const Navigation = styled.nav<{ path: string }>`
             css`
                 width: 100vw;
                 height: 7rem;
+
+                & svg {
+                    height: 100%;
+                }
+            `}
+    }
+
+    @media ${device.laptopL} {
+        ${NavigationBaseStyles}
+
+        ${({ path }) =>
+            path === '/maps' &&
+            css`
+                width: 7rem;
 
                 & svg {
                     height: 100%;

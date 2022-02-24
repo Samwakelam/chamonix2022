@@ -1,7 +1,8 @@
 import styled, { css } from 'styled-components';
 
 import { DataCard } from '../../weather-cards.styles';
-import { shadow, theme } from '../../../../theme';
+import { theme } from '../../../../theme';
+import { getGradientTextClip } from '../../../../helpers/get-gradient-text-clip.helper';
 
 export const ResortDataCard = styled.article`
     ${DataCard}
@@ -25,8 +26,5 @@ export const HeadingWrap = styled.div`
         text-align: center;
     }
 
-    background-image: linear-gradient(135deg, ${theme.c.purple.a}, ${theme.c.pink.b});
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    ${getGradientTextClip(135, theme.c.purple.a, theme.c.pink.b)}
 `;

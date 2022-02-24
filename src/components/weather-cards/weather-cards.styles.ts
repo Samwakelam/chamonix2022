@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 
+import { getGradientTextClip } from '../../helpers/get-gradient-text-clip.helper';
 import { shadow, theme } from '../../theme';
 
 export const DataCard = css`
@@ -28,10 +29,7 @@ export const ButtonWrap = styled.div`
         margin: 0 1rem 1rem 1rem;
         width: 4rem;
 
-        background-image: linear-gradient(135deg, ${theme.c.orange.a}, ${theme.c.pink.b});
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        ${getGradientTextClip(135, theme.c.orange.a, theme.c.pink.b)}
 
         svg path {
             fill: ${theme.c.pink.b};
