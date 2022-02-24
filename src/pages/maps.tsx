@@ -1,7 +1,7 @@
 import React from 'react';
+
 import { MockThreeDays } from '../../__mocks__/mock-three-days.data';
 
-import { MockThreeHours } from '../../__mocks__/mock-three-hours.data';
 import { ResortDataProps } from '../@types/resort-data.definition';
 
 import { Page } from '../layouts/page/page.layout';

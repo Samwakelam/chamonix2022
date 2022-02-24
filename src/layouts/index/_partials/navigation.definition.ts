@@ -1,4 +1,4 @@
-import { LocationTypes, MountainLevelTypes, WeatherTypes } from '../../@types/resort-data.definition';
+import { LocationTypes, MountainLevelTypes, WeatherTypes } from '../../../@types/resort-data.definition';
 
 export type NavigationConfigProps = {
     continent: string;

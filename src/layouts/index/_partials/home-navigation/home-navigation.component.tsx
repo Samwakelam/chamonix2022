@@ -4,20 +4,20 @@ import Link from 'next/link';
 import { SpeedUnitContext } from '../../../../providers/speed-unit.provider';
 
 import { LocationTypes } from '../../../../@types/resort-data.definition';
-import { Button } from '../../../button/button.component';
-import { ButtonTypes } from '../../../button/button.definition';
-import { Heading, HeadingSizes } from '../../../heading';
-import { Icon } from '../../../icon/icon.component';
-import { Select } from '../../../select/select.component';
+import { Button } from '../../../../components/button/button.component';
+import { ButtonTypes } from '../../../../components/button/button.definition';
+import { Heading, HeadingSizes } from '../../../../components/heading';
+import { Icon } from '../../../../components/icon/icon.component';
+import { Select } from '../../../../components/select/select.component';
 
-import { mountainLeftButtons, resortLeftButtons } from '../../navigation.data';
+import { mountainLeftButtons, resortLeftButtons } from '../navigation.data';
 import { HomeNavigationProps } from './home-navigation.definition';
 
 import * as S from './home-navigation.styles';
-import { Toggle } from '../../../toggle/toggle.component';
+import { Toggle } from '../../../../components/toggle/toggle.component';
 
 export const HomeNavigation = ({
-    config,
+    resortConfig,
     activeStates,
     handleClick,
     handleChange,
@@ -26,7 +26,7 @@ export const HomeNavigation = ({
 }: HomeNavigationProps): React.ReactElement<HomeNavigationProps> => {
     const { setMPH, setKMH } = useContext(SpeedUnitContext);
 
-    const { name, year, country } = config;
+    const { name, year, country } = resortConfig;
     const { activeLocation, activeLevel, activeWeather, dateOptions } = activeStates;
 
     const handleToggle = (item: boolean) => {
