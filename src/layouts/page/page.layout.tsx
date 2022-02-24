@@ -9,6 +9,8 @@ import {
 } from '../../@types/resort-data.definition';
 
 import { OptionProps } from '../../components/select/select.definition';
+import { Button } from '../../components/button/button.styles';
+import { ButtonTypes } from '../../components/button/button.definition';
 
 import { getGroupedObject } from '../../helpers/get-grouped-object.helper';
 import { getFormattedDate } from '../../helpers/get-formatted-date.helper';
@@ -22,6 +24,7 @@ import { PageLayoutProps } from './page.definition';
 import { MapData } from './page.data';
 
 import * as S from './page.styles';
+import { Icon } from '../../components/icon/icon.component';
 
 export const Page = ({ pageData }: PageLayoutProps): JSX.Element => {
     if (!pageData) return null;
@@ -37,6 +40,7 @@ export const Page = ({ pageData }: PageLayoutProps): JSX.Element => {
     const [year, setYear] = useState<number>(2022);
     const [displayCardData, setDisplayCardData] = useState<ForecastDataProps[]>([]);
     const [path, setPath] = useState<string>('/');
+    const [isOpen, setIsOpen] = useState<boolean>(true);
 
     const [activeMap, setActiveMap] = useState<string>(MapData[0].label);
     const [activeLevel, setActiveLevel] = useState<MountainLevelTypes>(MountainLevelTypes.BASE);
@@ -129,10 +133,14 @@ export const Page = ({ pageData }: PageLayoutProps): JSX.Element => {
         setDateString(event.target.value);
     };
 
+    const handleMenuCollapse = () => {
+        setIsOpen(isOpen ? false : true);
+    };
+
     return (
         <S.Page>
-            <S.Navigation path={path}>
-                {path === '/' && (
+            <S.Navigation path={path} collapse={!isOpen}>
+                {path === '/' && isOpen && (
                     <HomeNavigation
                         resortConfig={{ name, year, country }}
                         activeStates={{ activeLocation, activeLevel, activeWeather, dateOptions }}
@@ -142,9 +150,18 @@ export const Page = ({ pageData }: PageLayoutProps): JSX.Element => {
                         handleLeftResortClick={handleLeftResortClick}
                     />
                 )}
-                {path === '/maps' && <MapsNavigation handleMapSelect={setActiveMap} />}
+                {path === '/maps' && isOpen && <MapsNavigation handleMapSelect={setActiveMap} />}
             </S.Navigation>
             <S.Main>
+                <S.Button
+                    buttonType={ButtonTypes.LEFT}
+                    round
+                    onClick={handleMenuCollapse}
+                    onCollapse={!isOpen}
+                    path={path}
+                >
+                    <Icon icon="chevron-back" />
+                </S.Button>
                 {path === '/' && (
                     <IndexLayout
                         activeLocation={activeLocation}
