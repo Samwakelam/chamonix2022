@@ -1,29 +1,35 @@
 import styled, { css } from 'styled-components';
-import { LocationTypes } from '../../@types/resort-data.definition';
-import { shadow, theme } from '../../theme';
 
-export const Header = styled.header`
+import { getGradientTextClip } from '../../../../helpers/get-gradient-text-clip.helper';
+import { theme } from '../../../../theme';
+import { device } from '../../../../theme/device.object';
+
+import { HomeNavigationStyledProps } from './home-navigation.definition';
+
+const HomeNavigationBaseStyles = css`
     display: flex;
     flex-flow: column;
     justify-content: space-around;
     align-items: center;
-    position: relative;
+    width: 100%;
+    height: 100%;
+`;
 
-    background-color: ${theme.c.white.a};
-    box-shadow: ${shadow.raised.a};
-    height: 100vh;
-    width: 15rem;
+const SelectBaseStyles = css`
+    margin: 0 1rem 0 0;
+    width: 80%;
+    border-radius: 0 2rem 2rem 0;
+    align-self: flex-start;
+    text-align: center;
+
+    ${getGradientTextClip(135, theme.c.aqua.a, theme.c.aqua.b)}
+`;
+
+export const HomeNavigation = styled.section<HomeNavigationStyledProps>`
+    ${HomeNavigationBaseStyles}
 
     & select {
-        margin: 0 1rem 0 0;
-        width: 80%;
-        border-radius: 0 2rem 2rem 0;
-        align-self: flex-start;
-        text-align: center;
-        background-image: linear-gradient(135deg, ${theme.c.aqua.a}, ${theme.c.aqua.b});
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        ${SelectBaseStyles}
 
         @media (orientation: landscape) {
             border-radius: 2rem;
@@ -31,14 +37,22 @@ export const Header = styled.header`
             order: 4;
             transform: translateX(2rem);
         }
+
+        @media ${device.laptopL} {
+            ${SelectBaseStyles}
+
+            order: unset;
+            transform: unset;
+        }
     }
 
     @media (orientation: landscape) {
         flex-flow: row;
-        align-items: center;
+    }
 
-        height: 15rem;
-        width: 100vw;
+    @media ${device.laptopL} {
+        ${HomeNavigationBaseStyles}
+        order: unset;
     }
 `;
 
@@ -47,21 +61,35 @@ export const TitleWrap = styled.div`
     flex-flow: column;
     align-items: center;
 
-    background-image: linear-gradient(135deg, ${theme.c.blue.a}, ${theme.c.blue.b});
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    ${getGradientTextClip(135, theme.c.blue.a, theme.c.blue.b)}
+
+    & h1 {
+        font-size: 1.2rem;
+        margin: 0;
+    }
+
+    & h2 {
+        font-size: 1rem;
+        margin: 0;
+    }
 
     @media (orientation: landscape) {
         order: 2;
         height: 15rem;
         width: 15rem;
         justify-content: center;
-        padding: 0 2rem;
+        padding: 0 1rem;
+    }
+
+    @media ${device.laptopL} {
+        height: unset;
+        width: unset;
+        order: unset;
+        padding: unset;
     }
 `;
 
-export const RoundButtonWrap = styled.div`
+const RoundButtonWrapBaseStyles = css`
     display: flex;
     flex-flow: column;
     justify-content: space-around;
@@ -79,32 +107,48 @@ export const RoundButtonWrap = styled.div`
             height: 100%;
         }
 
+        &:last-of-type {
+            margin: 0 0 1rem 0;
+        }
+
         &[data-active='true'] {
             transform: scale(1.5, 1.5);
             color: ${theme.c.blue.c};
         }
     }
+`;
+
+export const RoundButtonWrap = styled.div`
+    ${RoundButtonWrapBaseStyles}
 
     @media (orientation: landscape) {
         flex-flow: row;
         order: 3;
         width: 30rem;
-        padding: 0 2rem;
+        padding: 0 1rem;
 
         & button {
             margin: 0 1.5rem;
+
+            &:last-of-type {
+                margin: 0 0 0 0;
+            }
         }
+    }
+
+    @media ${device.laptopL} {
+        ${RoundButtonWrapBaseStyles}
+        order: unset
     }
 `;
 
-export const LeftButtonWrap = styled.div`
+const LeftButtonWrapBaseStyles = css`
     display: flex;
     flex-flow: column;
     align-self: flex-start;
     bottom: 0;
     width: 100%;
     visibility: visible;
-    overflow-y: scroll;
 
     & h3 {
         font-size: 1.2rem;
@@ -120,13 +164,14 @@ export const LeftButtonWrap = styled.div`
         padding: 1rem 0;
         text-align: center;
 
-        background-image: linear-gradient(135deg, ${theme.c.blue.a}, ${theme.c.blue.b});
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        ${getGradientTextClip(135, theme.c.blue.a, theme.c.blue.b)}
 
         & > * {
             pointer-events: none;
+        }
+
+        & h3 {
+            line-height: unset;
         }
 
         & svg {
@@ -138,32 +183,34 @@ export const LeftButtonWrap = styled.div`
             width: 80%;
             color: ${theme.c.blue.c};
 
-            background-image: linear-gradient(135deg, ${theme.c.blue.b}, ${theme.c.blue.c});
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            ${getGradientTextClip(135, theme.c.blue.b, theme.c.blue.c)}
         }
-    }
-
-    @media (orientation: landscape) {
-        order: 1;
-        height: 100%;
-        justify-content: center;
-        height: 15rem;
     }
 `;
 
-export const ToggleWrap = styled.div`
+export const LeftButtonWrap = styled.div`
+    ${LeftButtonWrapBaseStyles}
+
+    @media (orientation: landscape) {
+        order: 1;
+        justify-content: center;
+        height: 15rem;
+        width: 150rem;
+    }
+
+    @media ${device.laptopL} {
+        ${LeftButtonWrapBaseStyles}
+        height: unset;
+        order: unset;
+    }
+`;
+
+const ToggleWrapBaseStyles = css`
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
 
-    background-image: linear-gradient(135deg, ${theme.c.blue.a}, ${theme.c.blue.b});
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-    bottom: 2.4rem;
+    ${getGradientTextClip(135, theme.c.blue.a, theme.c.blue.b)}
 
     & h3 {
         font-size: 1.2rem;
@@ -181,6 +228,10 @@ export const ToggleWrap = styled.div`
         height: 30px;
         width: 55px;
     }
+`;
+
+export const ToggleWrap = styled.div`
+    ${ToggleWrapBaseStyles}
 
     @media (orientation: landscape) {
         transform: rotate(270deg);
@@ -189,6 +240,16 @@ export const ToggleWrap = styled.div`
         & h3 {
             writing-mode: vertical-rl;
             text-orientation: sideways-left;
+        }
+    }
+
+    @media ${device.laptopL} {
+        transform: unset;
+        order: unset;
+
+        & h3 {
+            writing-mode: unset;
+            text-orientation: unset;
         }
     }
 `;

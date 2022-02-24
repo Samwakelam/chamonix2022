@@ -7,7 +7,7 @@ export enum ButtonTypes {
     ICON = 'icon',
 }
 
-export interface ButtonProps {
+export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
     className?: string;
     buttonType?: ButtonTypes;
     round?: boolean;

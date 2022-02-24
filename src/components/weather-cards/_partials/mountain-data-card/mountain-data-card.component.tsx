@@ -29,7 +29,7 @@ export const MountainDataCard = ({
     units = SpeedUnitTypes.MPH,
 }: MountainDataCardProps): React.ReactElement<MountainDataCardProps> => {
     if (!weatherConfig) return null;
-    console.log('date time =', date, time);
+
     const card = useRef<HTMLElement>(null);
     const [cardWidth, setCardWidth] = useState<number>(0);
 

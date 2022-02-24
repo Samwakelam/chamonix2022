@@ -3,21 +3,25 @@ const DATA_CACHE_NAME = 'ski-resort-weather-offline-data-cache-v1';
 const FILES_TO_CACHE = [
     // This needs to be included not '/index.htm', or it works explicitly for /index.html search.
     '/',
+    '/maps',
     'manifest.json',
+    'serve.json',
 
     '/css/weather-icons-wind.css',
     '/css/weather-icons.css',
 
-    'public/font/weathericons-regular-webfont.eot',
-    'public/font/weathericons-regular-webfont.svg',
-    'public/font/weathericons-regular-webfont.ttf',
-    'public/font/weathericons-regular-webfont.woff',
-    'public/font/weathericons-regular-webfont.woff2',
+    '/font/weathericons-regular-webfont.eot',
+    '/font/weathericons-regular-webfont.svg',
+    '/font/weathericons-regular-webfont.ttf',
+    '/font/weathericons-regular-webfont.woff',
+    '/font/weathericons-regular-webfont.woff2',
 
-    // 'https://fonts.googleapis.com',
-    // 'https://www.snow-forecast.com/stylesheets/feed.css',
-    // 'https://fonts.gstatic.com',
-    // 'https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100&display=swap',
+    '/maps/argentiere.png',
+    '/maps/arguille-du-midi.png',
+    '/maps/balme.png',
+    '/maps/brevent-flegere.png',
+    '/maps/le-petit-chamonix.png',
+    '/maps/les-houches.png',
 ];
 
 // install
