@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { Button as ButtonComponent } from '../../components/button/button.component';
 
 import { shadow, theme, device } from '../../theme';
 
@@ -25,6 +26,56 @@ export const Page = styled.div`
     }
 `;
 
+export const Button = styled(ButtonComponent)<{ onCollapse: boolean; path: string }>`
+    margin-top: 1rem;
+    padding: 1rem 2rem;
+    position: absolute;
+    background-color: ${theme.c.white.a};
+
+    & svg {
+        height: 100%;
+        transform: rotate(0deg);
+        transition: transform 200ms;
+
+        path {
+            fill: ${theme.c.aqua.a};
+        }
+    }
+
+    ${({ onCollapse }) =>
+        onCollapse &&
+        css`
+            & svg {
+                transform: rotate(180deg);
+                transition: transform 200ms;
+            }
+        `}
+
+    @media (orientation: landscape) {
+        transform: rotate(90deg);
+        transition: transform 200ms;
+        position: fixed;
+        left: 1rem;
+        top: ${({ path }) => (path === '/' ? '14.6rem' : '6.6rem')};
+
+        ${({ onCollapse, path }) => {
+            if (onCollapse && path === '/maps') {
+                return css`
+                    transform: rotate(90deg) translatex(-7rem);
+                    transition: transform 200ms;
+                `;
+            }
+
+            if (onCollapse && path === '/') {
+                return css`
+                    transform: rotate(90deg) translatex(-15rem);
+                    transition: transform 200ms;
+                `;
+            }
+        }}
+    }
+`;
+
 export const Main = styled.main`
     display: flex;
     height: 100vh;
@@ -43,7 +94,7 @@ const NavigationBaseStyles = css`
     transition: 200ms;
 `;
 
-export const Navigation = styled.nav<{ path: string }>`
+export const Navigation = styled.nav<{ path: string; collapse: boolean }>`
     ${NavigationBaseStyles}
 
     ${({ path }) =>
@@ -54,6 +105,12 @@ export const Navigation = styled.nav<{ path: string }>`
             & svg {
                 height: 100%;
             }
+        `}
+
+        ${({ collapse }) =>
+        collapse &&
+        css`
+            width: 0;
         `}
 
     @media (orientation: landscape) {
@@ -69,6 +126,12 @@ export const Navigation = styled.nav<{ path: string }>`
                 & svg {
                     height: 100%;
                 }
+            `}
+
+        ${({ collapse }) =>
+            collapse &&
+            css`
+                height: 0;
             `}
     }
 
