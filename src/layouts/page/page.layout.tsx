@@ -168,6 +168,7 @@ export const Page = ({ pageData }: PageLayoutProps): JSX.Element => {
                         activeLevel={activeLevel}
                         activeWeather={activeWeather}
                         cardData={displayCardData}
+                        snowStats={groupByDate}
                     />
                 )}
                 {path === '/maps' && <MapsLayout mapsConfig={MapData} activeMap={activeMap} />}

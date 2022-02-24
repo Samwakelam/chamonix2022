@@ -38,7 +38,7 @@ export const buttonData: MountainButtonDataProps[] = [
     {
         icon: 'snowflake',
         title: 'Fresh Snow:',
-        key: 'freshsnow_cm',
+        key: 'freshsnow',
     },
     {
         icon: 'windy',
