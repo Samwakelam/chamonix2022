@@ -1,33 +1,48 @@
 import styled, { css } from 'styled-components';
+
+import { getGradientTextClip } from '../../../../helpers/get-gradient-text-clip.helper';
 import { theme } from '../../../../theme';
 import { device } from '../../../../theme/device.object';
+
 import { HomeNavigationStyledProps } from './home-navigation.definition';
 
-export const HomeNavigation = styled.section<HomeNavigationStyledProps>`
+const HomeNavigationBaseStyles = css`
     display: flex;
     flex-flow: column;
     justify-content: space-around;
     align-items: center;
     width: 100%;
     height: 100%;
+`;
+
+const SelectBaseStyles = css`
+    margin: 0 1rem 0 0;
+    width: 80%;
+    border-radius: 0 2rem 2rem 0;
+    align-self: flex-start;
+    text-align: center;
+
+    ${getGradientTextClip(135, theme.c.aqua.a, theme.c.aqua.b)}
+`;
+
+export const HomeNavigation = styled.section<HomeNavigationStyledProps>`
+    ${HomeNavigationBaseStyles}
 
     & select {
-        margin: 0 1rem 0 0;
-        width: 80%;
-        border-radius: 0 2rem 2rem 0;
-        align-self: flex-start;
-        text-align: center;
-
-        background-image: linear-gradient(135deg, ${theme.c.aqua.a}, ${theme.c.aqua.b});
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        ${SelectBaseStyles}
 
         @media (orientation: landscape) {
             border-radius: 2rem;
             align-self: center;
             order: 4;
             transform: translateX(2rem);
+        }
+
+        @media ${device.laptopL} {
+            ${SelectBaseStyles}
+
+            order: unset;
+            transform: unset;
         }
     }
 
@@ -36,13 +51,8 @@ export const HomeNavigation = styled.section<HomeNavigationStyledProps>`
     }
 
     @media ${device.laptopL} {
-        @media (orientation: landscape) {
-            flex-flow: column;
-            align-items: center;
-
-            height: 100vh;
-            width: 15rem;
-        }
+        ${HomeNavigationBaseStyles}
+        order: unset;
     }
 `;
 
@@ -51,10 +61,7 @@ export const TitleWrap = styled.div`
     flex-flow: column;
     align-items: center;
 
-    background-image: linear-gradient(135deg, ${theme.c.blue.a}, ${theme.c.blue.b});
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    ${getGradientTextClip(135, theme.c.blue.a, theme.c.blue.b)}
 
     & h1 {
         font-size: 1.2rem;
@@ -73,9 +80,16 @@ export const TitleWrap = styled.div`
         justify-content: center;
         padding: 0 1rem;
     }
+
+    @media ${device.laptopL} {
+        height: unset;
+        width: unset;
+        order: unset;
+        padding: unset;
+    }
 `;
 
-export const RoundButtonWrap = styled.div`
+const RoundButtonWrapBaseStyles = css`
     display: flex;
     flex-flow: column;
     justify-content: space-around;
@@ -102,6 +116,10 @@ export const RoundButtonWrap = styled.div`
             color: ${theme.c.blue.c};
         }
     }
+`;
+
+export const RoundButtonWrap = styled.div`
+    ${RoundButtonWrapBaseStyles}
 
     @media (orientation: landscape) {
         flex-flow: row;
@@ -117,9 +135,14 @@ export const RoundButtonWrap = styled.div`
             }
         }
     }
+
+    @media ${device.laptopL} {
+        ${RoundButtonWrapBaseStyles}
+        order: unset
+    }
 `;
 
-export const LeftButtonWrap = styled.div`
+const LeftButtonWrapBaseStyles = css`
     display: flex;
     flex-flow: column;
     align-self: flex-start;
@@ -141,10 +164,7 @@ export const LeftButtonWrap = styled.div`
         padding: 1rem 0;
         text-align: center;
 
-        background-image: linear-gradient(135deg, ${theme.c.blue.a}, ${theme.c.blue.b});
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        ${getGradientTextClip(135, theme.c.blue.a, theme.c.blue.b)}
 
         & > * {
             pointer-events: none;
@@ -163,31 +183,34 @@ export const LeftButtonWrap = styled.div`
             width: 80%;
             color: ${theme.c.blue.c};
 
-            background-image: linear-gradient(135deg, ${theme.c.blue.b}, ${theme.c.blue.c});
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            ${getGradientTextClip(135, theme.c.blue.b, theme.c.blue.c)}
         }
     }
+`;
+
+export const LeftButtonWrap = styled.div`
+    ${LeftButtonWrapBaseStyles}
 
     @media (orientation: landscape) {
         order: 1;
-        height: 100%;
         justify-content: center;
         height: 15rem;
         width: 150rem;
     }
+
+    @media ${device.laptopL} {
+        ${LeftButtonWrapBaseStyles}
+        height: unset;
+        order: unset;
+    }
 `;
 
-export const ToggleWrap = styled.div`
+const ToggleWrapBaseStyles = css`
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
 
-    background-image: linear-gradient(135deg, ${theme.c.blue.a}, ${theme.c.blue.b});
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    ${getGradientTextClip(135, theme.c.blue.a, theme.c.blue.b)}
 
     & h3 {
         font-size: 1.2rem;
@@ -205,6 +228,10 @@ export const ToggleWrap = styled.div`
         height: 30px;
         width: 55px;
     }
+`;
+
+export const ToggleWrap = styled.div`
+    ${ToggleWrapBaseStyles}
 
     @media (orientation: landscape) {
         transform: rotate(270deg);
@@ -213,6 +240,16 @@ export const ToggleWrap = styled.div`
         & h3 {
             writing-mode: vertical-rl;
             text-orientation: sideways-left;
+        }
+    }
+
+    @media ${device.laptopL} {
+        transform: unset;
+        order: unset;
+
+        & h3 {
+            writing-mode: unset;
+            text-orientation: unset;
         }
     }
 `;

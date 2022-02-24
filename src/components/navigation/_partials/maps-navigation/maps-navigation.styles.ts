@@ -1,8 +1,12 @@
 import styled, { css } from 'styled-components';
+
+import { getGradientTextClip } from '../../../../helpers/get-gradient-text-clip.helper';
 import { theme } from '../../../../theme';
+import { device } from '../../../../theme/device.object';
+
 import { MapsNavigationStyledProps } from './maps-navigation.definition';
 
-export const MapsNavigation = styled.section<MapsNavigationStyledProps>`
+const MapsNavigationBaseStyles = css`
     display: flex;
     flex-flow: column;
     justify-content: space-around;
@@ -23,17 +27,11 @@ export const MapsNavigation = styled.section<MapsNavigationStyledProps>`
         height: 15rem;
         text-align: center;
 
-        background-image: linear-gradient(135deg, ${theme.c.blue.a}, ${theme.c.blue.b});
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        ${getGradientTextClip(135, theme.c.blue.a, theme.c.blue.b)}
     }
 
     & button.map-index {
-        background-image: linear-gradient(135deg, ${theme.c.aqua.a}, ${theme.c.blue.b});
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        ${getGradientTextClip(135, theme.c.aqua.a, theme.c.blue.b)}
 
         & h4 {
             margin: 0 0.4rem;
@@ -42,12 +40,13 @@ export const MapsNavigation = styled.section<MapsNavigationStyledProps>`
         &[data-active='true'] {
             transform: scale(1.2, 1.2);
 
-            background-image: linear-gradient(135deg, ${theme.c.orange.a}, ${theme.c.pink.c});
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            ${getGradientTextClip(135, theme.c.orange.a, theme.c.pink.c)}
         }
     }
+`;
+
+export const MapsNavigation = styled.section<MapsNavigationStyledProps>`
+    ${MapsNavigationBaseStyles}
 
     @media (orientation: landscape) {
         flex-flow: row;
@@ -57,6 +56,14 @@ export const MapsNavigation = styled.section<MapsNavigationStyledProps>`
             transform: rotate(270deg) translateX(-40%);
             width: 15rem;
             height: 15rem;
+        }
+    }
+
+    @media ${device.laptopL} {
+        ${MapsNavigationBaseStyles}
+
+        & h1 {
+            width: unset;
         }
     }
 `;
