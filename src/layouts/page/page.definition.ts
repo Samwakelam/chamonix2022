@@ -1,5 +1,5 @@
-import { ResortDataProps } from '../../@types/resort-data.definition';
+import { ReactElement } from 'react';
 
 export type PageLayoutProps = {
-    pageData: ResortDataProps;
+    children: ReactElement | ReactElement[];
 };

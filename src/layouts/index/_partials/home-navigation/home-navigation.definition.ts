@@ -1,6 +1,6 @@
 import { ChangeEvent, MouseEvent } from 'react';
 import { LocationTypes, MountainLevelTypes, WeatherTypes } from '../../../../@types/resort-data.definition';
-import { OptionProps } from '../../../../components/select/select.definition';
+import { SelectOptionProps } from '../../../../components/select/select.definition';
 
 export type ConfigProps = {
     name: string;
@@ -12,7 +12,7 @@ export type ActiveStateProps = {
     activeLocation: LocationTypes;
     activeLevel: MountainLevelTypes;
     activeWeather: WeatherTypes;
-    dateOptions: OptionProps[];
+    dateOptions: SelectOptionProps[];
 };
 
 export type HomeNavigationProps = {

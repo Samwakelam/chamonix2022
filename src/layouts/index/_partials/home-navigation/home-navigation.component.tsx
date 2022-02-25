@@ -47,6 +47,7 @@ export const HomeNavigation = ({
                 <Heading size={HeadingSizes.H2}>{year}</Heading>
                 <Heading size={HeadingSizes.H2}>{country}</Heading>
             </S.TitleWrap>
+
             <S.RoundButtonWrap>
                 <Button
                     round
@@ -80,6 +81,7 @@ export const HomeNavigation = ({
                     </Button>
                 </Link>
             </S.RoundButtonWrap>
+
             <S.LeftButtonWrap>
                 {activeLocation === LocationTypes.MOUNT &&
                     mountainLeftButtons.map(({ data, heading }, index) => (
@@ -110,7 +112,9 @@ export const HomeNavigation = ({
                         </Button>
                     ))}
             </S.LeftButtonWrap>
-            <Select options={dateOptions} onChange={handleChange} />
+
+            <Select selectOptions={dateOptions} onChange={handleChange} />
+
             <S.ToggleWrap>
                 <Heading size={HeadingSizes.H3}>MILES</Heading>
                 <Toggle isToggleOn={handleToggle} />
