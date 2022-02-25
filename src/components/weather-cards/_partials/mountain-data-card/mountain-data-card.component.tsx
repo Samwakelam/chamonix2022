@@ -41,6 +41,7 @@ export const MountainDataCard = ({
         winddir_compass: windDirection,
         wx_desc: description,
         wx_icon: icon,
+        freshsnow_cm,
     } = weatherConfig;
 
     useEffect(() => {
@@ -109,6 +110,8 @@ export const MountainDataCard = ({
                 {buttonData.map(({ icon, title, key }: MountainButtonDataProps) => {
                     let buttonValue;
                     switch (key) {
+                        case 'freshSnow':
+                            buttonValue = freshsnow_cm * 10;
                         case 'windSpeed':
                             buttonValue = units === SpeedUnitTypes.MPH ? windSpeedMPH : windSpeedKMH;
                             break;

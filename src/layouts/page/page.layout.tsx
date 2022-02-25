@@ -9,7 +9,6 @@ import {
 } from '../../@types/resort-data.definition';
 
 import { OptionProps } from '../../components/select/select.definition';
-import { Button } from '../../components/button/button.styles';
 import { ButtonTypes } from '../../components/button/button.definition';
 
 import { getGroupedObject } from '../../helpers/get-grouped-object.helper';
@@ -168,6 +167,7 @@ export const Page = ({ pageData }: PageLayoutProps): JSX.Element => {
                         activeLevel={activeLevel}
                         activeWeather={activeWeather}
                         cardData={displayCardData}
+                        snowStats={groupByDate}
                     />
                 )}
                 {path === '/maps' && <MapsLayout mapsConfig={MapData} activeMap={activeMap} />}

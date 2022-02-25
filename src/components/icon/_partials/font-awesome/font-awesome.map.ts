@@ -1,4 +1,13 @@
-import { faMountain, faSnowflake, faCity, faEye, faMap, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import {
+    faMountain,
+    faSnowflake,
+    faCity,
+    faEye,
+    faMap,
+    faChevronLeft,
+    faSquarePollVertical,
+    faXmark,
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIconMapProps } from './font-awesome.definition';
 
 export const fontAwesomeIconMap: FontAwesomeIconMapProps = {
@@ -8,4 +17,6 @@ export const fontAwesomeIconMap: FontAwesomeIconMapProps = {
     eye: faEye,
     map: faMap,
     'chevron-back': faChevronLeft,
+    stats: faSquarePollVertical,
+    x: faXmark,
 };

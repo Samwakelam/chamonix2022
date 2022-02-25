@@ -26,6 +26,10 @@ export const ScrollerContainer = styled.section`
         background-color: ${theme.c.grey.b};
         border-radius: 3rem;
     }
+
+    @media (orientation: landscape) {
+        /* overflow-y: scroll; */
+    }
 `;
 
 export const Scroller = styled.section<ScrollerStyledProps>`

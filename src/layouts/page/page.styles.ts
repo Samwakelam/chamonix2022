@@ -13,7 +13,9 @@ export const Page = styled.div`
     }
 
     @media (orientation: landscape) {
+        position: relative;
         flex-flow: column;
+        max-height: 100vh;
 
         & nav {
             position: sticky;
@@ -27,7 +29,7 @@ export const Page = styled.div`
 `;
 
 export const Button = styled(ButtonComponent)<{ onCollapse: boolean; path: string }>`
-    margin-top: 1rem;
+    margin: 1rem 0;
     padding: 1rem 2rem;
     position: absolute;
     background-color: ${theme.c.white.a};
@@ -52,23 +54,14 @@ export const Button = styled(ButtonComponent)<{ onCollapse: boolean; path: strin
         `}
 
     @media (orientation: landscape) {
-        transform: rotate(90deg);
+        transform: rotate(90deg) translate(-0.5rem, -1rem);
         transition: transform 200ms;
-        position: fixed;
-        left: 1rem;
-        top: ${({ path }) => (path === '/' ? '14.6rem' : '6.6rem')};
+        position: absolute;
 
         ${({ onCollapse, path }) => {
-            if (onCollapse && path === '/maps') {
+            if (onCollapse) {
                 return css`
-                    transform: rotate(90deg) translatex(-7rem);
-                    transition: transform 200ms;
-                `;
-            }
-
-            if (onCollapse && path === '/') {
-                return css`
-                    transform: rotate(90deg) translatex(-15rem);
+                    transform: rotate(90deg)
                     transition: transform 200ms;
                 `;
             }
@@ -81,6 +74,10 @@ export const Main = styled.main`
     height: 100vh;
     flex: 1;
     overflow-x: hidden;
+
+    @media (orientation: landscape) {
+        height: 100vh;
+    }
 `;
 
 const NavigationBaseStyles = css`
@@ -92,6 +89,7 @@ const NavigationBaseStyles = css`
     width: 15rem;
     transition-property: width;
     transition: 200ms;
+    z-index: 1;
 `;
 
 export const Navigation = styled.nav<{ path: string; collapse: boolean }>`
