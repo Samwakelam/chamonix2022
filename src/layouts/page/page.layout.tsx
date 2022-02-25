@@ -9,7 +9,6 @@ import {
 } from '../../@types/resort-data.definition';
 
 import { OptionProps } from '../../components/select/select.definition';
-import { Button } from '../../components/button/button.styles';
 import { ButtonTypes } from '../../components/button/button.definition';
 
 import { getGroupedObject } from '../../helpers/get-grouped-object.helper';
