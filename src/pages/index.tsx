@@ -21,7 +21,7 @@ export const getStaticProps = async (): Promise<{ props: { resortData: ResortDat
     const APP_KEY = process.env.WU_KEY;
 
     const response = await fetch(
-        `https://api.weatherunlocked.com/api/resortforecast/333003?num_of_days=3&app_id=${APP_ID}&app_key=${APP_KEY}`
+        `https://api.weatherunlocked.com/api/resortforecast/333003?app_id=${APP_ID}&app_key=${APP_KEY}`
     );
 
     const resortData = await response.json();
@@ -29,7 +29,6 @@ export const getStaticProps = async (): Promise<{ props: { resortData: ResortDat
     return {
         props: {
             resortData: resortData as ResortDataProps,
-            // resortData: MockThreeDays as ResortDataProps,
         },
     };
 };
