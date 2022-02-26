@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
-import { MockThreeDays } from '../../__mocks__/mock-three-days.data';
 
 import {
     ForecastDataProps,
@@ -120,7 +119,7 @@ const Index = ({ resortData }: IndexPageProps): JSX.Element => {
             });
         });
         setSelectOptions(newArray);
-    }, [forecast]);
+    }, []);
 
     return (
         <Page>
@@ -160,19 +159,19 @@ const Index = ({ resortData }: IndexPageProps): JSX.Element => {
 export default Index;
 
 export const getStaticProps = async (): Promise<{ props: { resortData: ResortDataProps } }> => {
-    // const APP_ID = process.env.WU_APP_ID;
-    // const APP_KEY = process.env.WU_KEY;
+    const APP_ID = process.env.WU_APP_ID;
+    const APP_KEY = process.env.WU_KEY;
 
-    // const response = await fetch(
-    //     `https://api.weatherunlocked.com/api/resortforecast/333003?num_of_days=3&app_id=${APP_ID}&app_key=${APP_KEY}`
-    // );
+    const response = await fetch(
+        `https://api.weatherunlocked.com/api/resortforecast/333003?num_of_days=3&app_id=${APP_ID}&app_key=${APP_KEY}`
+    );
 
-    // const resortData = await response.json();
+    const resortData = await response.json();
 
     return {
         props: {
-            // resortData: resortData as ResortDataProps,
-            resortData: MockThreeDays as ResortDataProps,
+            resortData: resortData as ResortDataProps,
+            // resortData: MockThreeDays as ResortDataProps,
         },
     };
 };

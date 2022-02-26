@@ -28,8 +28,6 @@ export const IndexLayout = ({
 }: IndexLayoutProps): React.ReactElement<IndexLayoutProps> => {
     const { speedUnit } = useContext<SpeedUnitContextProps>(SpeedUnitContext);
 
-    const Component = activeLocation === LocationTypes.MOUNT ? MountainDataCard : ResortDataCard;
-
     return (
         <Scroller cardWidth="13.5rem">
             {cardData.map((report) => {
