@@ -28,7 +28,7 @@ export const NavigationContainer = styled.nav<NavigationContainerStyledProps>`
         `}
 
         ${({ isOpen }) =>
-        isOpen &&
+        !isOpen &&
         css`
             width: 0;
         `}
@@ -49,7 +49,7 @@ export const NavigationContainer = styled.nav<NavigationContainerStyledProps>`
             `}
 
         ${({ isOpen }) =>
-            isOpen &&
+            !isOpen &&
             css`
                 height: 0;
             `}

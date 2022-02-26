@@ -2,11 +2,20 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { MockThreeDays } from '../../__mocks__/mock-three-days.data';
 
-import { LocationTypes, MountainLevelTypes, ResortDataProps, WeatherTypes } from '../@types/resort-data.definition';
+import {
+    ForecastDataProps,
+    LocationTypes,
+    MountainLevelTypes,
+    ResortDataProps,
+    WeatherTypes,
+} from '../@types/resort-data.definition';
 import { ButtonTypes } from '../components/button/button.definition';
 import { Icon } from '../components/icon/icon.component';
+import { SelectOptionProps } from '../components/select/select.definition';
+import { getFormattedDate } from '../helpers/get-formatted-date.helper';
+import { getGroupedObject } from '../helpers/get-grouped-object.helper';
 import { IndexLayout } from '../layouts/index/index.layout';
-import { HomeNavigation } from '../layouts/index/_partials/home-navigation/home-navigation.styles';
+import { HomeNavigation } from '../layouts/index/_partials/home-navigation/home-navigation.component';
 import { MainContainer } from '../layouts/main-container/main-container.component';
 import { NavigationContainer } from '../layouts/navigation-container/navigation-container.component';
 
@@ -23,9 +32,14 @@ const Index = ({ resortData }: IndexPageProps): JSX.Element => {
 
     const [isOpen, setIsOpen] = useState<boolean>(true);
 
+    const [groupedByDate, setGroupedByDate] = useState<ForecastDataProps[]>([]);
+    const [datesArray, setDatesArray] = useState<string[]>([]);
+    const [selectOptions, setSelectOptions] = useState<SelectOptionProps[]>([]);
+
     const [activeLevel, setActiveLevel] = useState<MountainLevelTypes>(MountainLevelTypes.BASE);
     const [activeWeather, setActiveWeather] = useState<WeatherTypes>(WeatherTypes.GENERAL);
     const [activeLocation, setActiveLocation] = useState<LocationTypes>(LocationTypes.RESORT);
+    const [activeDate, setActiveDate] = useState<string>(datesArray[0]);
 
     const handleLeftMountainClick = (event) => {
         event.preventDefault();
@@ -84,7 +98,7 @@ const Index = ({ resortData }: IndexPageProps): JSX.Element => {
     const handleChange = (event) => {
         event.preventDefault();
         event.stopPropagation();
-        setDateString(event.target.value);
+        setActiveDate(event.target.value);
     };
 
     const handleMenuCollapse = () => {
@@ -92,16 +106,29 @@ const Index = ({ resortData }: IndexPageProps): JSX.Element => {
     };
 
     useEffect(() => {
-        console.log('useEffect');
-    }, []);
+        setGroupedByDate(getGroupedObject(resortData.forecast, 'date'));
+
+        const keys = Object.keys(groupedByDate);
+        setDatesArray;
+
+        const newArray: SelectOptionProps[] = [];
+        keys.forEach((date) => {
+            const formattedDate = getFormattedDate(date);
+            newArray.push({
+                title: formattedDate,
+                value: date,
+            });
+        });
+        setSelectOptions(newArray);
+    }, [forecast]);
 
     return (
         <Page>
             <NavigationContainer page={router.pathname} isOpen={isOpen}>
                 {isOpen && (
                     <HomeNavigation
-                        resortConfig={{ name, year, country }}
-                        activeStates={{ activeLocation, activeLevel, activeWeather, dateOptions }}
+                        resortConfig={{ name, year: 2022, country }}
+                        activeStates={{ activeLocation, activeLevel, activeWeather, selectOptions }}
                         handleClick={handleClick}
                         handleChange={handleChange}
                         handleLeftMountainClick={handleLeftMountainClick}
@@ -109,21 +136,21 @@ const Index = ({ resortData }: IndexPageProps): JSX.Element => {
                     />
                 )}
             </NavigationContainer>
-            <S.Button
-                buttonType={ButtonTypes.LEFT}
-                round
-                onClick={handleMenuCollapse}
-                onCollapse={!isOpen}
-                path={router.pathname}
-            >
-                <Icon icon="chevron-back" />
-            </S.Button>
             <MainContainer>
+                <S.Button
+                    buttonType={ButtonTypes.LEFT}
+                    round
+                    onClick={handleMenuCollapse}
+                    onCollapse={!isOpen}
+                    path={router.pathname}
+                >
+                    <Icon icon="chevron-back" />
+                </S.Button>
                 <IndexLayout
                     activeLocation={activeLocation}
                     activeLevel={activeLevel}
                     activeWeather={activeWeather}
-                    cardData={displayCardData}
+                    cardData={forecast}
                 />
             </MainContainer>
         </Page>

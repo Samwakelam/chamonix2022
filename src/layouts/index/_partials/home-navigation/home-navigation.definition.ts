@@ -12,7 +12,7 @@ export type ActiveStateProps = {
     activeLocation: LocationTypes;
     activeLevel: MountainLevelTypes;
     activeWeather: WeatherTypes;
-    dateOptions: SelectOptionProps[];
+    selectOptions: SelectOptionProps[];
 };
 
 export type HomeNavigationProps = {

@@ -27,7 +27,7 @@ export const HomeNavigation = ({
     const { setMPH, setKMH } = useContext(SpeedUnitContext);
 
     const { name, year, country } = resortConfig;
-    const { activeLocation, activeLevel, activeWeather, dateOptions } = activeStates;
+    const { activeLocation, activeLevel, activeWeather, selectOptions } = activeStates;
 
     const handleToggle = (item: boolean) => {
         switch (item) {
@@ -113,7 +113,7 @@ export const HomeNavigation = ({
                     ))}
             </S.LeftButtonWrap>
 
-            <Select selectOptions={dateOptions} onChange={handleChange} />
+            <Select selectOptions={selectOptions} onChange={handleChange} />
 
             <S.ToggleWrap>
                 <Heading size={HeadingSizes.H3}>MILES</Heading>

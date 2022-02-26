@@ -33,18 +33,20 @@ export const IndexLayout = ({
     return (
         <Scroller cardWidth="13.5rem">
             {cardData.map((report) => {
-                const config =
-                    activeLocation === LocationTypes.MOUNT
-                        ? report[activeLevel]
-                        : { weatherConfig: report, weatherGroup: activeWeather };
-
-                return (
-                    <Component
+                if (activeLocation === LocationTypes.MOUNT)
+                    <MountainDataCard
                         key={`${report.date}-${report.time}`}
-                        weatherConfig={config}
+                        weatherConfig={report[activeLevel]}
                         units={speedUnit}
                         date={report.date}
                         time={report.time}
+                    />;
+
+                return (
+                    <ResortDataCard
+                        key={`${report.date}-${report.time}`}
+                        weatherConfig={{ weatherConfig: report, weatherGroup: activeWeather }}
+                        units={speedUnit}
                     />
                 );
             })}

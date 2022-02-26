@@ -8,6 +8,6 @@ export const Main = styled.main`
     overflow-x: hidden;
 `;
 
-export const MainContainer = ({ children }: { children: ReactElement }): React.ReactElement => {
+export const MainContainer = ({ children }: { children: ReactElement | ReactElement[] }): React.ReactElement => {
     return <Main>{children}</Main>;
 };

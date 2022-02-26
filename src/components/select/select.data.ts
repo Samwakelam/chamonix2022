@@ -1,7 +1,7 @@
 import { SelectProps } from './select.definition';
 
 export const SelectData: Omit<SelectProps, 'onChange'> = {
-    options: [
+    selectOptions: [
         { value: '21/02/2022', title: '21 Feb' },
         { value: '22/02/2022', title: '22 Feb' },
         { value: '23/02/2022', title: '23 Feb' },
