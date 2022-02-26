@@ -26,3 +26,4 @@ const Maps = (): JSX.Element => {
 };
 
 export default Maps;
+
