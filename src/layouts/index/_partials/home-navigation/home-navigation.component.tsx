@@ -27,7 +27,7 @@ export const HomeNavigation = ({
     const { setMPH, setKMH } = useContext(SpeedUnitContext);
 
     const { name, year, country } = resortConfig;
-    const { activeLocation, activeLevel, activeWeather, dateOptions } = activeStates;
+    const { activeLocation, activeLevel, activeWeather, selectOptions } = activeStates;
 
     const handleToggle = (item: boolean) => {
         switch (item) {
@@ -47,6 +47,7 @@ export const HomeNavigation = ({
                 <Heading size={HeadingSizes.H2}>{year}</Heading>
                 <Heading size={HeadingSizes.H2}>{country}</Heading>
             </S.TitleWrap>
+
             <S.RoundButtonWrap>
                 <Button
                     round
@@ -80,6 +81,7 @@ export const HomeNavigation = ({
                     </Button>
                 </Link>
             </S.RoundButtonWrap>
+
             <S.LeftButtonWrap>
                 {activeLocation === LocationTypes.MOUNT &&
                     mountainLeftButtons.map(({ data, heading }, index) => (
@@ -110,7 +112,9 @@ export const HomeNavigation = ({
                         </Button>
                     ))}
             </S.LeftButtonWrap>
-            <Select options={dateOptions} onChange={handleChange} />
+
+            <Select selectOptions={selectOptions} onChange={handleChange} />
+
             <S.ToggleWrap>
                 <Heading size={HeadingSizes.H3}>MILES</Heading>
                 <Toggle isToggleOn={handleToggle} />

@@ -1,11 +1,11 @@
-export type OptionProps = {
+export type SelectOptionProps = {
     title: string;
     value: string;
 };
 
 export type SelectProps = {
     className?: string;
-    options: OptionProps[];
+    selectOptions: SelectOptionProps[];
     onChange: (item: React.ChangeEvent<HTMLSelectElement>) => void;
 };
 
