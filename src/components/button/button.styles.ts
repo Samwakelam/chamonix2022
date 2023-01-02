@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import { getButtonStyles } from './helpers/get-button-styles.helper';
 import { ButtonStyledProps } from './button.definition';
 
-import { theme, shadow } from '../../theme';
+import { theme } from '../../theme';
 
 export const Button = styled.button<ButtonStyledProps>`
     font-family: ${theme.f.lato};
@@ -19,6 +19,7 @@ export const Button = styled.button<ButtonStyledProps>`
         ${round &&
         css`
             border-radius: 2rem;
+            min-width: 4rem;
         `}
 
         ${getButtonStyles(buttonType)}

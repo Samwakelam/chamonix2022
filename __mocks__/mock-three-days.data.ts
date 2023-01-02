@@ -1,4 +1,6 @@
-export const MockThreeDays = {
+import { ResortDataProps } from '../src/@types/resort-data.definition';
+
+export const MockThreeDays: ResortDataProps = {
     continent: 'Europe',
     country: 'France',
     forecast: [

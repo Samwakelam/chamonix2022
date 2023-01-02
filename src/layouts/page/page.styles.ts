@@ -26,11 +26,13 @@ export const Page = styled.div`
     }
 `;
 
-export const Button = styled(ButtonComponent)<{ onCollapse: boolean; path: string }>`
+export const Button = styled(ButtonComponent)<{ isCollapsed: boolean; path: string }>`
     margin-top: 1rem;
     padding: 1rem 2rem;
     position: absolute;
     background-color: ${theme.c.white.a};
+
+    box-shadow: 4px 3px 5px rgb(22 27 29 / 23%);
 
     & svg {
         height: 100%;
@@ -42,8 +44,8 @@ export const Button = styled(ButtonComponent)<{ onCollapse: boolean; path: strin
         }
     }
 
-    ${({ onCollapse }) =>
-        onCollapse &&
+    ${({ isCollapsed }) =>
+        isCollapsed &&
         css`
             & svg {
                 transform: rotate(180deg);
@@ -58,15 +60,15 @@ export const Button = styled(ButtonComponent)<{ onCollapse: boolean; path: strin
         left: 1rem;
         top: ${({ path }) => (path === '/' ? '14.6rem' : '6.6rem')};
 
-        ${({ onCollapse, path }) => {
-            if (onCollapse && path === '/maps') {
+        ${({ isCollapsed, path }) => {
+            if (isCollapsed && path === '/maps') {
                 return css`
                     transform: rotate(90deg) translatex(-7rem);
                     transition: transform 200ms;
                 `;
             }
 
-            if (onCollapse && path === '/') {
+            if (isCollapsed && path === '/') {
                 return css`
                     transform: rotate(90deg) translatex(-15rem);
                     transition: transform 200ms;
@@ -74,6 +76,10 @@ export const Button = styled(ButtonComponent)<{ onCollapse: boolean; path: strin
             }
         }}
     }
+
+    @media ${device.laptopL} {
+        display: none;
+    } ;
 `;
 
 export const Main = styled.main`
@@ -94,7 +100,7 @@ const NavigationBaseStyles = css`
     transition: 200ms;
 `;
 
-export const Navigation = styled.nav<{ path: string; collapse: boolean }>`
+export const Navigation = styled.nav<{ path: string; isCollapsed: boolean }>`
     ${NavigationBaseStyles}
 
     ${({ path }) =>
@@ -107,8 +113,8 @@ export const Navigation = styled.nav<{ path: string; collapse: boolean }>`
             }
         `}
 
-        ${({ collapse }) =>
-        collapse &&
+        ${({ isCollapsed }) =>
+        isCollapsed &&
         css`
             width: 0;
         `}
@@ -128,8 +134,8 @@ export const Navigation = styled.nav<{ path: string; collapse: boolean }>`
                 }
             `}
 
-        ${({ collapse }) =>
-            collapse &&
+        ${({ isCollapsed }) =>
+            isCollapsed &&
             css`
                 height: 0;
             `}

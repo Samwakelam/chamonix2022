@@ -1,5 +1,6 @@
-import { ResortDataProps } from '../../@types/resort-data.definition';
+import { ReactElement } from 'react';
 
+// first child is the navigation, second child is the content
 export type PageLayoutProps = {
-    pageData: ResortDataProps;
+    children: [ReactElement, ReactElement];
 };
