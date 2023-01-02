@@ -2,50 +2,49 @@
     "root": true,
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
-      "ecmaVersion": 2020,
-      "sourceType": "module",
-      "ecmaFeatures": {
-        "jsx": false
-      }
+        "ecmaVersion": 2020,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": false
+        }
     },
     "plugins": ["@typescript-eslint"],
     "env": {
-      "jest": true
+        "jest": true
     },
     "extends": [
-      "airbnb",
-      "plugin:prettier/recommended",
-      "plugin:@typescript-eslint/eslint-recommended",
-      "plugin:@typescript-eslint/recommended",
-      "plugin:json/recommended"
+        "plugin:prettier/recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:json/recommended"
     ],
     "settings": {
-      "react": {
-        "version": "detect"
-      }
+        "react": {
+            "version": "detect"
+        }
     },
     "rules": {
-      "max-len": [2, 120, 4, { "ignoreUrls": true, "ignorePattern": "d=\"([\\s\\S]*?)\"" }],
-      "no-use-before-define": 0,
-      "no-console": 1,
-      "@typescript-eslint/no-use-before-define": 1,
-      "no-shadow": 0,
-      "@typescript-eslint/no-shadow": "error",
-      "import/no-unresolved": 0,
-      "import/extensions": 0,
-      "import/prefer-default-export": 0,
-      "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
-      "react/jsx-props-no-spreading": 0,
-      "react/jsx-indent": ["error", 4],
-      "react/jsx-indent-props": ["error", 4],
-      "react/jsx-wrap-multilines": "off",
-      "react/jsx-one-expression-per-line": "off",
-      "react/jsx-filename-extension": [
-        2,
-        {
-          "extensions": [".ts", ".tsx"]
-        }
-      ],
-      "react/react-in-jsx-scope": "off"
+        "max-len": [2, 120, 4, { "ignoreUrls": true, "ignorePattern": "d=\"([\\s\\S]*?)\"" }],
+        "no-use-before-define": 0,
+        "no-console": 1,
+        "@typescript-eslint/no-use-before-define": 1,
+        "no-shadow": 0,
+        "@typescript-eslint/no-shadow": "error",
+        "import/no-unresolved": 0,
+        "import/extensions": 0,
+        "import/prefer-default-export": 0,
+        "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+        "react/jsx-props-no-spreading": 0,
+        "react/jsx-indent": ["error", 4],
+        "react/jsx-indent-props": ["error", 4],
+        "react/jsx-wrap-multilines": "off",
+        "react/jsx-one-expression-per-line": "off",
+        "react/jsx-filename-extension": [
+            2,
+            {
+                "extensions": [".ts", ".tsx"]
+            }
+        ],
+        "react/react-in-jsx-scope": "off"
     }
-  }
+}
