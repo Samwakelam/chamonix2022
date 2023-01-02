@@ -1,5 +1,5 @@
-const CACHE_NAME = 'ski-resort-weather-offline-cache-v1';
-const DATA_CACHE_NAME = 'ski-resort-weather-offline-data-cache-v1';
+const CACHE_NAME = 'ski-resort-weather-offline-cache-v2';
+const DATA_CACHE_NAME = 'ski-resort-weather-offline-data-cache-v2';
 const FILES_TO_CACHE = [
     // This needs to be included not '/index.htm', or it works explicitly for /index.html search.
     '/',
@@ -22,6 +22,7 @@ const FILES_TO_CACHE = [
     '/maps/brevent-flegere.png',
     '/maps/le-petit-chamonix.png',
     '/maps/les-houches.png',
+    '/maps/tignes.jpg',
 ];
 
 // install

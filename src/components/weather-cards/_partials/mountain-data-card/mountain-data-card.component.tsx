@@ -30,7 +30,7 @@ export const MountainDataCard = ({
 }: MountainDataCardProps): React.ReactElement<MountainDataCardProps> => {
     if (!weatherConfig) return null;
 
-    const card = useRef<HTMLElement>(null);
+    const card = useRef<HTMLDivElement>(null);
     const [cardWidth, setCardWidth] = useState<number>(0);
 
     const {

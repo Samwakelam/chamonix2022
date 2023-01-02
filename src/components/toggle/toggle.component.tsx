@@ -5,7 +5,7 @@ import { ToggleProps } from './toggle.definition';
 import * as S from './toggle.styles';
 
 export const Toggle = ({ className, isToggleOn }: ToggleProps): React.ReactElement<ToggleProps> => {
-    const span = useRef<HTMLElement>(null);
+    const span = useRef<HTMLSpanElement>(null);
 
     const [isActive, setIsActive] = useState<boolean>(false);
     const [toggleWidth, setToggleWidth] = useState<number>(0);

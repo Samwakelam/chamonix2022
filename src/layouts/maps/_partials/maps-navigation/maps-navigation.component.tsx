@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useMemo } from 'react';
 import Link from 'next/link';
 
 import { Button } from '../../../../components/button/button.component';
@@ -6,53 +6,48 @@ import { ButtonTypes } from '../../../../components/button/button.definition';
 import { Icon } from '../../../../components/icon/icon.component';
 import { Heading, HeadingSizes } from '../../../../components/heading';
 
-import { MapData } from '../../../page/page.data';
+import { MapDataProps } from '../../../../maps/resort.map';
 
 import * as S from './maps-navigation.styles';
 
-export const MapsNavigation = ({ handleMapSelect }) => {
-    const [activeMap, setActiveMap] = useState<string>(MapData[0].label);
-    const [activeHeading, setActiveHeading] = useState<string>('');
-
-    const handleClick = (event, map) => {
-        event.preventDefault();
-        event.stopPropagation();
-
-        setActiveMap(map);
-    };
-
-    useEffect(() => {
-        const mapObject = MapData.filter((map) => {
-            return map.label === activeMap;
-        });
-        setActiveHeading(mapObject[0].title);
-        handleMapSelect(activeMap);
+export const MapsNavigation = ({
+    handleMapSelect,
+    mapsConfig,
+    activeMap,
+}: {
+    handleMapSelect: (activeMap: string) => void;
+    mapsConfig: MapDataProps[];
+    activeMap: string;
+}) => {
+    const activeHeading = useMemo(() => {
+        return mapsConfig.filter((map) => map.label === activeMap)[0].title;
     }, [activeMap]);
 
     return (
         <S.MapsNavigation>
-            <Link href="/" passHref>
-                <Button round buttonType={ButtonTypes.ICON}>
+            <Button round buttonType={ButtonTypes.ICON}>
+                <Link href="/" passHref>
                     <a>
                         <Icon icon={'chevron-back'} />
                     </a>
-                </Button>
-            </Link>
+                </Link>
+            </Button>
             <Heading size={HeadingSizes.H1}>{activeHeading}</Heading>
-            {MapData.map(({ label }, index) => {
-                return (
-                    <Button
-                        round
-                        buttonType={ButtonTypes.ICON}
-                        className="map-index"
-                        data-active={activeMap === label}
-                        onClick={(e) => handleClick(e, label)}
-                        key={label}
-                    >
-                        <Heading size={HeadingSizes.H4}>{index}</Heading>
-                    </Button>
-                );
-            })}
+            {mapsConfig.length > 1 &&
+                mapsConfig.map(({ label }, index) => {
+                    return (
+                        <Button
+                            round
+                            buttonType={ButtonTypes.ICON}
+                            className="map-index"
+                            data-active={activeMap === label}
+                            onClick={(e) => handleMapSelect(label)}
+                            key={label}
+                        >
+                            <Heading size={HeadingSizes.H4}>{index}</Heading>
+                        </Button>
+                    );
+                })}
         </S.MapsNavigation>
     );
 };

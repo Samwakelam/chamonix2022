@@ -21,7 +21,7 @@ export const ResortDataCard = ({
 }: ResortDataCardProps): React.ReactElement<ResortDataCardProps> => {
     if (!weatherConfig) return null;
 
-    const card = useRef<HTMLElement>(null);
+    const card = useRef<HTMLDivElement>(null);
     const [cardWidth, setCardWidth] = useState<number>(0);
 
     const { weatherGroup, weatherConfig: weatherDetails } = weatherConfig;

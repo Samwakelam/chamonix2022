@@ -9,12 +9,12 @@ import { ButtonTypes } from '../../../../components/button/button.definition';
 import { Heading, HeadingSizes } from '../../../../components/heading';
 import { Icon } from '../../../../components/icon/icon.component';
 import { Select } from '../../../../components/select/select.component';
+import { Toggle } from '../../../../components/toggle/toggle.component';
 
 import { mountainLeftButtons, resortLeftButtons } from '../navigation.data';
 import { HomeNavigationProps } from './home-navigation.definition';
 
 import * as S from './home-navigation.styles';
-import { Toggle } from '../../../../components/toggle/toggle.component';
 
 export const HomeNavigation = ({
     resortConfig,
@@ -27,6 +27,7 @@ export const HomeNavigation = ({
     const { setMPH, setKMH } = useContext(SpeedUnitContext);
 
     const { name, year, country } = resortConfig;
+    console.log('name: ', name);
     const { activeLocation, activeLevel, activeWeather, dateOptions } = activeStates;
 
     const handleToggle = (item: boolean) => {
