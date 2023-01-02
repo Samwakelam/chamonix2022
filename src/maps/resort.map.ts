@@ -94,7 +94,7 @@ export const resort: Resort = {
                 title: 'Espace Killy',
                 label: 'espace-killy',
                 image: {
-                    mobile: '/maps/tignes.jpg',
+                    mobile: '/maps/tignes.png',
                     alt: 'Espace Killy Map',
                     fit: ImageFitType.CONTAIN,
                 },

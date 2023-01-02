@@ -23,6 +23,7 @@ const FILES_TO_CACHE = [
     '/maps/le-petit-chamonix.png',
     '/maps/les-houches.png',
     '/maps/tignes.jpg',
+    '/maps/tignes.png',
 ];
 
 // install
